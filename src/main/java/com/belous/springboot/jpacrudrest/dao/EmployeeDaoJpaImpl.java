@@ -40,4 +40,14 @@ public class EmployeeDaoJpaImpl implements EmployeeDao {
         // get result
         return theEmployee;
     }
+
+    @Override
+    public void save(Employee theEmployee) {
+
+        // save or update the employee
+        Employee dbEmployee = entityManager.merge(theEmployee);
+
+        // update with id from db ... we can get generated id for save/insert
+        theEmployee.setId(dbEmployee.getId());
+    }
 }

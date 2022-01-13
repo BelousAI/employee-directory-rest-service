@@ -43,4 +43,14 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
         // execute query and return the results
         return currentSession.get(Employee.class, theId);
     }
+
+    @Override
+    public void save(Employee theEmployee) {
+
+        // get the current hibernate session
+        Session currentSession = entityManager.unwrap(Session.class);
+
+        // save/update the employee
+        currentSession.saveOrUpdate(theEmployee);
+    }
 }
