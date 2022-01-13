@@ -50,4 +50,14 @@ public class EmployeeDaoJpaImpl implements EmployeeDao {
         // update with id from db ... we can get generated id for save/insert
         theEmployee.setId(dbEmployee.getId());
     }
+
+    @Override
+    public void deleteById(int theId) {
+
+        // delete object with primary key
+        Query theQuery = entityManager.createQuery("delete from Employee where id=:employeeId");
+        theQuery.setParameter("employeeId", theId);
+
+        theQuery.executeUpdate();
+    }
 }

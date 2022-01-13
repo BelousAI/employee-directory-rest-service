@@ -37,4 +37,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void save(Employee theEmployee) {
         employeeDao.save(theEmployee);
     }
+
+    @Override
+    @Transactional
+    public void deleteById(int theId) {
+        employeeDao.deleteById(theId);
+    }
 }
