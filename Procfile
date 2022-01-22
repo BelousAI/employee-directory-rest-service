@@ -1,0 +1,1 @@
+web: java -jar target/jpa-crud-rest-1.0.jar
